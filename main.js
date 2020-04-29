@@ -1,3 +1,5 @@
+let notes = [];
+
 // Note entry object format
 const note = function(subject = "", body = "") {
 	let now = unixtime();
@@ -31,6 +33,79 @@ const note = function(subject = "", body = "") {
 	};
 }
 
+// Copies a note object
+const copyNote = function(input) {
+	let newNote = note(input.subject, input.body);
+	console.log("Copied: " + newNote);
+	return newNote;
+}
+
+// Adds a note
+const addNote = function(note) {
+	let newNote = copyNote(note);
+	newNote.index = notes.length;
+	notes.push(newNote);
+}
+
+// Edits an existing note
+const editNote = function(index, inputNote) {
+	if(typeof(notes[index]) == "undefined") {
+		return false;
+	}
+	note.index = index;
+	notes[index] = copyNote(inputNote);
+	return true;
+}
+
+// Delete an existing note: Returns successfulness of operation
+const delNote = function(index) {
+	if(typeof(notes[index]) == "undefined") {
+		return false;
+	}
+
+	delete notes[index];
+	let allNotes = [];
+	for(let note of notes) {
+		if(note != undefined) {
+			allNotes.push(note);
+		}
+	}
+	console.log("All notes:");
+	console.log(allNotes);
+	// Reindex list
+	notes.length = 0;
+	let i = 0;
+	for(let note of notes) {
+		note.index = i++;
+		notes.push(note);
+	}
+	return true;
+}
+
+const submitNotes = function(args) {
+	console.log(args);
+}
+
+// Print notes
+const printNotes = function() {
+	clearNotes();
+
+	let parent = document.querySelector(".notes");
+	for(let i = 0; i < notes.length; i++) {
+		const div = document.createElement('div');
+		div.innerText = "" + i + ": " + notes[i].subject + '\n' + notes[i].body;
+		div.classList.add("note");
+		parent.appendChild(div);
+	}
+}
+
+// Clears the DOM of notes.
+const clearNotes = function() {
+	const list = document.querySelector('.notes');
+	while(list.hasChildNodes()) {
+		list.firstChild.remove();
+	}
+}
 
 function unixtime() {
 	return Math.round(Date.now() / 1000)
@@ -50,9 +125,19 @@ function wait(ms) {
 
 
 let myNote = note("Token", "Eh braskaska, chto za marana i rlinomaranabraskaskamarana tokendomelakalema");
-wait(2000);
+wait(750);
 myNote.subject = "Devour brains seven times";
-wait(2000);
+wait(750);
 myNote.body;
 
 console.log(myNote);
+
+addNote(myNote);
+
+wait(750);
+
+myNote.subject = "Rechange";
+
+addNote(myNote);
+
+console.log(notes);

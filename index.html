@@ -2,13 +2,22 @@
 	<head>
 		<title> NoteSaver </title>
 		<link rel="stylesheet" type="text/css" href="./main.css">
+		<script src="./main.js"></script>
 	</head>
 	<body>
 
 		<div id="App">
 			<div class="control">LOGO SHIT
 				<div class="tools">
-					<div class="tool">Tool</div>
+					<div class="tool">
+						New Note<br>
+						<form>
+							<label for="subject">Subject:</label>
+							<input type="text" length=20 name="subject"><br>
+							<textarea name="body" cols=30 rows=5></textarea><br>
+							<button type="button" onSubmit="submitNote()">Add Note</button>
+						</form>
+					</div>
 					<div class="tool">Tool</div>
 					<div class="tool">Tool</div>
 				</div>
