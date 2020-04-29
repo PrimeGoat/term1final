@@ -49,9 +49,9 @@ function wait(ms) {
 //console.log(wait(1000));
 
 
-let myNote = note("Token", "Eh braskaska, chto za marana i rlinomaranabraskaskamarana tokendomelakalemaruzvaldarazamaranabraskaskamarana!!");
+let myNote = note("Token", "Eh braskaska, chto za marana i rlinomaranabraskaskamarana tokendomelakalema");
 wait(2000);
-myNote.subject = "Shit on me seven times";
+myNote.subject = "Devour brains seven times";
 wait(2000);
 myNote.body;
 

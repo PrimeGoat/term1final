@@ -1,0 +1,84 @@
+/* Phone 
+@media (max-width: 800px) {
+	#app {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.control {
+		border: 1 red dotted;
+		display: flex;
+		flex-direction: column;
+		height: 250px;
+	}
+	.notes {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: stretch
+	}
+}
+*/
+
+/* Tablet */
+/*@media (min-width: 801) and (max-width: 1200) {*/
+	#app {
+		width: 100vw;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.control {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
+	.notes {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: stretch
+	}
+	.tools .stats {
+		display: flex;
+		flex-direction: column;
+	}
+	.tool .stat {
+		align-self: center;
+		padding: 5px;
+	}
+/*}*/
+
+/* Desktop 
+@media (min-width: 1201) {
+	#app {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.control {
+		border: 1px blue dotted;
+		display: flex;
+		flex-direction: column;
+	}
+	.notes {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: stretch
+	}
+}*/
+
+#App {
+	background-color: #fffaff;
+}
+
+.notes {
+	width: 100vw;
+	background-color: #fefefe;
+}
+
+.note {
+	background-color: #dfffff;
+	color: blue;
+}
