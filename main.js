@@ -70,21 +70,26 @@ const delNote = function(index) {
 			allNotes.push(note);
 		}
 	}
-	console.log("All notes:");
-	console.log(allNotes);
+
 	// Reindex list
 	notes.length = 0;
 	let i = 0;
-	for(let note of notes) {
+	for(let note of allNotes) {
 		note.index = i++;
 		notes.push(note);
 	}
 	return true;
 }
 
-const submitNotes = function(args) {
-	console.log(args);
+const submitNote = function(args) {
+	//console.log(args);
+	let subject = document.querySelector("#addSubject").value;
+	let body = document.querySelector("#addBody").value;
+
+	addNote(note(subject, body));
+	printNotes();
 }
+document.querySelector("#addSubmit").addEventListener("click", submitNote);
 
 // Print notes
 const printNotes = function() {
@@ -141,3 +146,5 @@ myNote.subject = "Rechange";
 addNote(myNote);
 
 console.log(notes);
+
+printNotes();
